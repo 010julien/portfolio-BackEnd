@@ -1,0 +1,102 @@
+### Variables
+@baseUrl = http://localhost:3001
+@contentType = application/json
+
+### ========== PROJECTS ==========
+
+### Get all projects
+GET {{baseUrl}}/api/projects
+
+### Get project by ID
+GET {{baseUrl}}/api/projects/{{projectId}}
+
+### Get projects by status
+GET {{baseUrl}}/api/projects?status=termine
+
+### Create a new project
+POST {{baseUrl}}/api/projects
+Content-Type: {{contentType}}
+
+{
+  "title": "Portfolio Website",
+  "category": "Site Web",
+  "description": "Site portfolio personnel avec React et Tailwind CSS",
+  "technologies": ["React", "Tailwind CSS", "Vite", "Framer Motion"],
+  "role": "developer",
+  "roleDescription": "Développeur Full-Stack",
+  "team": "Projet solo",
+  "duration": "2 semaines",
+  "githubLink": "https://github.com/username/portfolio",
+  "demoLink": "https://portfolio.example.com",
+  "status": "termine",
+  "icon": "💼",
+  "color": "from-blue-500 to-purple-500",
+  "order": 4
+}
+
+### Update a project
+PATCH {{baseUrl}}/api/projects/{{projectId}}
+Content-Type: {{contentType}}
+
+{
+  "status": "en_cours",
+  "description": "Description mise à jour"
+}
+
+### Delete a project
+DELETE {{baseUrl}}/api/projects/{{projectId}}
+
+
+### ========== SKILLS ==========
+
+### Get all skills
+GET {{baseUrl}}/api/skills
+
+### Get skills by category
+GET {{baseUrl}}/api/skills?category=Frontend
+
+### Get skills grouped by categories
+GET {{baseUrl}}/api/skills/by-categories
+
+### Get skill by ID
+GET {{baseUrl}}/api/skills/{{skillId}}
+
+### Create a new skill
+POST {{baseUrl}}/api/skills
+Content-Type: {{contentType}}
+
+{
+  "name": "TypeScript",
+  "category": "Frontend",
+  "level": "advanced",
+  "percentage": 85,
+  "description": "Typage statique pour JavaScript",
+  "icon": "📘",
+  "color": "blue",
+  "order": 5,
+  "isActive": true
+}
+
+### Update a skill
+PATCH {{baseUrl}}/api/skills/{{skillId}}
+Content-Type: {{contentType}}
+
+{
+  "percentage": 90,
+  "level": "expert"
+}
+
+### Delete a skill
+DELETE {{baseUrl}}/api/skills/{{skillId}}
+
+
+### ========== DASHBOARD ==========
+
+### Get dashboard statistics
+GET {{baseUrl}}/api/dashboard/stats
+
+### Get timeline
+GET {{baseUrl}}/api/dashboard/timeline
+
+### Get recent activity
+GET {{baseUrl}}/api/dashboard/recent-activity
