@@ -17,7 +17,9 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       "http://localhost:5173", // Portfolio
-      "http://localhost:5174", // Dashboard
+      "http://localhost:5174",
+      "https://TON-PORTFOLIO.onrender.com",
+      "https://TON-DASHBOARD.onrender.com", // Dashboard
     ],
     credentials: true,
   });
