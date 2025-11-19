@@ -27,7 +27,7 @@ import { UploadModule } from "./upload/upload.module";
             type: "postgres",
             url: databaseUrl,
             autoLoadEntities: true,
-            synchronize: false,
+            synchronize: true,
             ssl: {
               rejectUnauthorized: false,
             },
