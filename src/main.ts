@@ -18,8 +18,8 @@ async function bootstrap() {
     origin: [
       "http://localhost:5173", // Portfolio
       "http://localhost:5174",
-      "https://TON-PORTFOLIO.onrender.com",
-      "https://TON-DASHBOARD.onrender.com", // Dashboard
+      "https://https://julien-mpn-dev-xcmh.onrender.com",
+      "https://https://portfolio-dashbord.onrender.com", // Dashboard
     ],
     credentials: true,
   });
