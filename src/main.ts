@@ -13,13 +13,13 @@ async function bootstrap() {
     prefix: "/uploads/",
   });
 
-  // Enable CORS
+  // Enable CORSs
   app.enableCors({
     origin: [
-      "http://localhost:5173", // Portfolio
-      "http://localhost:5174",
-      "https://https://julien-mpn-dev-xcmh.onrender.com",
+      "https://https://julien-mpn-dev-xcmh.onrender.com", // Portfolio
       "https://https://portfolio-dashbord.onrender.com", // Dashboard
+      "http://localhost:5173",
+      "http://localhost:5174",
     ],
     credentials: true,
   });
