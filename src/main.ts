@@ -17,8 +17,8 @@ async function bootstrap() {
   // Enable CORSs
   app.enableCors({
     origin: [
-      "https://https://julien-mpn-dev-xcmh.onrender.com", // Portfolio
-      "https://https://portfolio-dashbord.onrender.com", // Dashboard
+      "https://julien-mpn-dev-xcmh.onrender.com", // Portfolio
+      "https://portfolio-dashbord.onrender.com", // Dashboard
       "http://localhost:5173",
       "http://localhost:5174",
     ],
