@@ -24,6 +24,8 @@ async function bootstrap() {
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
     credentials: true,
+    allowedHeaders:
+      "Origin, X-Requested-With, Content-Type, Accept, Authorization",
   });
   app.useGlobalFilters(new AllExceptionsFilter());
 
@@ -52,7 +54,7 @@ async function bootstrap() {
   const port = process.env.PORT || 3000;
   await app.listen(port);
 
-  console.log(`🚀 Application est excution: http://localhost:${port}`);
+  console.log(`🚀 Application en excution: http://localhost:${port}`);
   console.log(`📚 API Documentation: http://localhost:${port}/api/docs`);
 }
 
