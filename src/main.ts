@@ -9,6 +9,8 @@ import { AllExceptionsFilter } from "./common/filters/all-exceptions.filter";
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
+  app.set("trust proxy", 1);
+
   // Serve static files for uploads
   app.useStaticAssets(join(__dirname, "..", "uploads"), {
     prefix: "/uploads/",

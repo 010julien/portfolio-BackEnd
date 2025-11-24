@@ -4,11 +4,13 @@ import {
   UploadedFile,
   UseInterceptors,
   BadRequestException,
+  Req,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiTags, ApiConsumes, ApiBody } from '@nestjs/swagger';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
+import { Request } from 'express';
 
 @ApiTags('upload')
 @Controller('api/upload')
@@ -50,15 +52,17 @@ export class UploadController {
       },
     },
   })
-  uploadSkillIcon(@UploadedFile() file: Express.Multer.File) {
+  uploadSkillIcon(@UploadedFile() file: Express.Multer.File, @Req() req: Request) {
     if (!file) {
       throw new BadRequestException('Aucun fichier fourni');
     }
 
+    const baseUrl = process.env.API_URL || `${req.protocol}://${req.get('host')}`;
+
     return {
       filename: file.filename,
       path: `/uploads/skills/${file.filename}`,
-      url: `${process.env.API_URL || 'http://localhost:3001'}/uploads/skills/${file.filename}`,
+      url: `${baseUrl}/uploads/skills/${file.filename}`,
     };
   }
 
@@ -99,15 +103,17 @@ export class UploadController {
       },
     },
   })
-  uploadProjectIcon(@UploadedFile() file: Express.Multer.File) {
+  uploadProjectIcon(@UploadedFile() file: Express.Multer.File, @Req() req: Request) {
     if (!file) {
       throw new BadRequestException('Aucun fichier fourni');
     }
 
+    const baseUrl = process.env.API_URL || `${req.protocol}://${req.get('host')}`;
+
     return {
       filename: file.filename,
       path: `/uploads/projects/${file.filename}`,
-      url: `${process.env.API_URL || 'http://localhost:3001'}/uploads/projects/${file.filename}`,
+      url: `${baseUrl}/uploads/projects/${file.filename}`,
     };
   }
 }
